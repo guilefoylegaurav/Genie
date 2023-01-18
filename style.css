@@ -29,7 +29,7 @@ section {
 }
 
 #results {
-    display: none;
+    display: block;
     /* padding-top: 10px; */
     padding-bottom: 10px;
     font-weight: bold;
@@ -52,9 +52,14 @@ section {
     width: 90%;
     resize: none;
     border-radius: 10px;
+    outline: none !important;
     padding: 10px;
     border-color: gray;
-    border-style: ridge;
+    /* border-style: ridge; */
+}
+
+#corpus:focus {
+    border-color: cornflowerblue;
 }
 
 #corpus::-webkit-scrollbar {
@@ -120,3 +125,23 @@ section {
     color: #818078;
     background-color: #fcfcfa;
 }
+
+#loading {
+    margin-top: 15px;
+    margin-bottom: 10px;
+    display: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(255,255,255,.3);
+    border-radius: 50%;
+    border-top-color: cornflowerblue;
+    animation: spin 1s ease-in-out infinite;
+    -webkit-animation: spin 1s ease-in-out infinite;
+  }
+  
+  @keyframes spin {
+    to { -webkit-transform: rotate(360deg); }
+  }
+  @-webkit-keyframes spin {
+    to { -webkit-transform: rotate(360deg); }
+  }

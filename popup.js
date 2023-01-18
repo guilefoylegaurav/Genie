@@ -6,6 +6,7 @@ let resultsSection;
 let analyzeButton;
 let getTextButton;
 let reloadButton;
+let spinner; 
 
 const ENDPOINT = "https://GenieBackend.gauravbhattacha.repl.co/api/analyze"
 
@@ -16,6 +17,7 @@ const predict = async () => {
     }
 
     try {
+        showSpinner();
         const response = await fetch(
             ENDPOINT, {
             method: "POST",
@@ -28,10 +30,11 @@ const predict = async () => {
         });
 
         if (!response.ok) {
+            hideSpinner(); 
             resultsSection.innerHTML = "<h1>Error</h1>"
             throw new Error('Could not fetch results');
         }
-
+        
         const data = await response.json();
         const { label, pc } = data;
         resultsSection.style.display = 'block';
@@ -39,6 +42,7 @@ const predict = async () => {
         if (label === 'Fake') {
             resultsColor = 'red'
         }
+        hideSpinner();
         resultsSection.style.color = resultsColor
         resultsSection.innerHTML = `<div class="container">
         <div class = "pc">${pc}%</div>
@@ -46,6 +50,7 @@ const predict = async () => {
         <progress class="progressBar" value="${pc}" max="100" style="accent-color: ${resultsColor}">${pc}</progress>
     </div>`
     } catch (error) {
+        hideSpinner(); 
         resultsSection.style.color = 'red'
         resultsSection.innerHTML = `<div class="container">
         <div class = "pc">Sorry</div>
@@ -74,6 +79,14 @@ const reload = () => {
 
 }
 
+const showSpinner = () => {
+    spinner.style.display = 'inline-block';
+}
+
+const hideSpinner = () => {
+    spinner.style.display = 'none';
+}
+
 const initialize = () => {
     resultsSection = document.getElementById('results');
     analyzeButton = document.getElementById('analyze');
@@ -83,6 +96,7 @@ const initialize = () => {
     reloadButton = document.getElementsByClassName('reload')[0];
     reloadButton.addEventListener('click', reload);
     textarea = document.getElementById('corpus');
+    spinner = document.getElementById('loading')
     textarea.addEventListener('change', (e) => {
         corpus = e.target.value;
     })
