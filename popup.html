@@ -1,12 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Genie - AI Content Detector</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="module" src="popup.js"></script>
+    <title>Genie</title>
 </head>
+
 <body>
-    Genie
+    <div class="container">
+        <span class="reload"><i class="fa fa-refresh"></i></span>
+        <section id="data">
+            <div class="container">
+                    <button id="getText">Import from webpage</button>
+                    <hr class="hr-text" data-content="OR">
+                    <textarea id="corpus" name="corpus" placeholder="Enter text"></textarea>
+                    <button type="submit" id="analyze">Analyze</button>
+            </div>
+        </section>
+        <section id="results">
+             <div class="container">
+                <div class = "pc">32%</div>
+                <div>Human-written text</div>
+                <progress class="progressBar" value="32" max="100"> 32% </progress>
+            </div>
+        </section>
+
+    </div>
+    
 </body>
+
 </html>
