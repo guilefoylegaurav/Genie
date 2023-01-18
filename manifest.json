@@ -1,0 +1,25 @@
+{
+  "name": "Genie",
+  "version": "0.1.0",
+  "description": "Genie tells you if the text you're reading is authentic or AI generated",
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "contentScript.js"
+      ]
+    }
+  ],
+  "action": {
+    "default_icon": {
+      "16": "assets/genie.png",
+      "24": "assets/genie.png",
+      "32": "assets/genie.png"
+    },
+    "default_title": "Genie",
+    "default_popup": "popup.html"
+  },
+  "manifest_version": 3
+}
