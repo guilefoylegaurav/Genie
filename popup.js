@@ -36,10 +36,11 @@ const predict = async () => {
         }
         
         const data = await response.json();
-        const { label, pc } = data;
+        const pc = data.pc;
+        const label = data.label === 'Fake' ? 'AI generated' : 'Human written';
         resultsSection.style.display = 'block';
         let resultsColor = 'green'
-        if (label === 'Fake') {
+        if (data.label === 'Fake') {
             resultsColor = 'red'
         }
         hideSpinner();
