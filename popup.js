@@ -6,7 +6,7 @@ let resultsSection;
 let analyzeButton;
 let getTextButton;
 let reloadButton;
-let spinner; 
+let spinner;
 
 const ENDPOINT = "https://GenieBackend.gauravbhattacha.repl.co/api/analyze"
 
@@ -30,11 +30,11 @@ const predict = async () => {
         });
 
         if (!response.ok) {
-            hideSpinner(); 
+            hideSpinner();
             resultsSection.innerHTML = "<h1>Error</h1>"
             throw new Error('Could not fetch results');
         }
-        
+
         const data = await response.json();
         const pc = data.pc;
         const label = data.label === 'Fake' ? 'AI generated' : 'Human written';
@@ -51,7 +51,7 @@ const predict = async () => {
         <progress class="progressBar" value="${pc}" max="100" style="accent-color: ${resultsColor}">${pc}</progress>
     </div>`
     } catch (error) {
-        hideSpinner(); 
+        hideSpinner();
         resultsSection.style.color = 'red'
         resultsSection.innerHTML = `<div class="container">
         <div class = "pc">Sorry</div>
@@ -61,8 +61,10 @@ const predict = async () => {
 }
 
 const setDOMInfo = info => {
-    corpus = info.substring(0, 500);
-    textarea.value = corpus;
+    
+        corpus = info.substring(0, 1500);
+        textarea.value = corpus;
+    
 };
 
 const getText = async () => {

@@ -1,5 +1,5 @@
 # Genie
-Genie is a browser extension that helps you know if the stuff that you're reading is human-written or AI generated. For the web page of choice, it displays the probability score of the text content being real
+Genie is a browser extension that helps you know if the stuff that you're reading is human-written or AI generated. For the web page of choice, it displays the probability score of the text content being human-written or AI generated. 
 
 ## Installing 
  - Clone and unzip this project
