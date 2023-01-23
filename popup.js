@@ -57,13 +57,23 @@ const predict = async () => {
         <div class = "pc">Sorry</div>
         <div>Unable to process request</div>
     </div>`
+        corpus = ''
+        textarea.value = corpus;
     }
 }
 
 const setDOMInfo = info => {
-    
+    try {
         corpus = info.substring(0, 1500);
         textarea.value = corpus;
+    } catch(err) {
+        resultsSection.style.color = 'red'
+        resultsSection.innerHTML = `<div class="container">
+        <div class = "pc">Sorry</div>
+        <div>Please refresh the page</div>
+    </div>`
+
+    }
     
 };
 
