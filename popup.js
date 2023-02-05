@@ -64,7 +64,7 @@ const predict = async () => {
 
 const setDOMInfo = info => {
     try {
-        corpus = info.substring(0, 1500);
+        corpus = info.substring(0, 2000);
         textarea.value = corpus;
     } catch(err) {
         resultsSection.style.color = 'red'
